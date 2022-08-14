@@ -36,7 +36,7 @@ public class AccountHolderServiceImpl implements AccountHolderService {
 	public AccountHolder modify(AccountHolder accountHolder) throws BadProfileException {
 		if (accountHolder.getAhId() == null || !ahRepository.existsById(accountHolder.getAhId()))
 			throw new BadProfileException("Record Does Not Exists Hence Can Not Be Modified");
-		return null;
+		return ahRepository.save(accountHolder);
 	}
 
 }
